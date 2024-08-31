@@ -2,6 +2,11 @@
 import "../styles/global.css";
 
 const pageTitle = "My Astro Learning Blog";
+
+const subject = "Astro";
+
+const subjectColor = "red";
+const fontWeight = "bold";
 ---
 
 <html lang="en">
@@ -11,6 +16,12 @@ const pageTitle = "My Astro Learning Blog";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <style define:vars={{ subjectColor, fontWeight }}>
+      .subject {
+        color: var(--subjectColor);
+        font-weight: var(--fontWeight);
+      }
+    </style>
   </head>
   <body>
     <a href="/">Home</a>
@@ -18,7 +29,11 @@ const pageTitle = "My Astro Learning Blog";
     <a href="/blog">Blog</a>
 
     <h1>{pageTitle}</h1>
-    <p>This is where I will post about my journey learning Astro.</p>
+    <p>
+      This is where I will post about my journey learning <span class="subject"
+        >{subject}</span
+      >.
+    </p>
     <ul>
       <li><a href="/posts/post-1/">Post 1</a></li>
       <li><a href="/posts/post-2/">Post 2</a></li>
